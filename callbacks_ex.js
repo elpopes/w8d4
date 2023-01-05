@@ -44,28 +44,31 @@ class Clock {
 
 const clock = new Clock();
 
-
-
-
-
-const readline = require ("readline");
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-function addNumbers(sum, nums_left, completionCallback){
-  if (nums_left > 0){
-    rl.question("Enter a number:", function(answer){
+function addNumbers(sum, nums_left, completionCallback) {
+  if (nums_left > 0) {
+    rl.question("Enter a number:", function (answer) {
       const parsedNum = parseInt(answer);
-      sum += parsedNum
-      console.log(`partial sum = ${sum}`)
-      debugger
-      addNumbers(sum, nums_left - 1, completionCallback)
+      sum += parsedNum;
+      console.log(`partial sum = ${sum}`);
+      debugger;
+      addNumbers(sum, nums_left - 1, completionCallback);
     });
   } else {
     rl.close();
-    completionCallback(sum)
+    completionCallback(sum);
   }
 }
-addNumbers(0, 3, sum => console.log(`Total Sum: ${sum}`));
+addNumbers(0, 3, (sum) => console.log(`Total Sum: ${sum}`));
+
+Function.prototype.myBind = function (context) {
+  const fn = this;
+  return () => {
+    fn.apply(context);
+  };
+};
