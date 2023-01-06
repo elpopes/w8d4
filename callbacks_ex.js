@@ -73,12 +73,6 @@
 //   };
 // };
 
-
-
-
-
-
-
 const readline = require("readline");
 const rl2 = readline.createInterface({
   input: process.stdin,
@@ -86,19 +80,55 @@ const rl2 = readline.createInterface({
 });
 
 function askIfGreaterThan(ele1, ele2, callback) {
-  rl2.question(`Is ${ele1} greater than ${ele2}?: `, 
-  function(answer) {
-    if (answer == "yes"){
-      debugger
-      callback(true)
+  rl2.question(`Is ${ele1} greater than ${ele2}?: `, function (answer) {
+    if (answer == "yes") {
+      debugger;
+      callback(true);
     } else {
-      debugger
-      callback(false)
+      debugger;
+      callback(false);
     }
-    rl2.close() 
-  } )
+    rl2.close();
+  });
 }
 
-function absurdBubbleSort(arr, sortCompletion) {
+// Once you're done testing askIfGreaterThan with dummy arguments, write this.
+function innerBubbleSortLoop(arr, i, madeAnySwaps, outerBubbleSortLoop) {
 
+  // Do an "async loop":
+  // 1. If (i == arr.length - 1), call outerBubbleSortLoop, letting it
+  //    know whether any swap was made.
+  // 2. Else, use `askIfGreaterThan` to compare `arr[i]` and `arr[i +
+  //    1]`. Swap if necessary. Call `innerBubbleSortLoop` again to
+  //    continue the inner loop. You'll want to increment i for the
+  //    next call, and possibly switch madeAnySwaps if you did swap.
+}
+
+// Once you're done testing innerBubbleSortLoop, write outerBubbleSortLoop.
+// Once you're done testing outerBubbleSortLoop, write absurdBubbleSort.
+
+function absurdBubbleSort(arr, sortCompletionCallback) {
+  function outerBubbleSortLoop(madeAnySwaps) {
+    // Begin an inner loop if you made any swaps. Otherwise, call
+    // `sortCompletionCallback`.
+  }
+
+  // Kick the first outer loop off, starting `madeAnySwaps` as true.
+}
+
+absurdBubbleSort([3, 2, 1], function (arr) {
+  console.log("Sorted array: " + JSON.stringify(arr));
+  reader.close();
+});
+
+
+bubbleSort(arr, sorter) {
+    sorted = true
+    while !sorted
+    sorted = true
+    for (i = 0; i < arr.length - 1; i++) {
+        // if arr[i] > 
+
+
+    }
 }
